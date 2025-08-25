@@ -127,6 +127,28 @@ Re-run Lambda, wait a few seconds, run crawler again, then re-query.
  * Lake Formation errors
 This stack is IAM‑only (no LF resources). Ensure Lake Formation Settings → Use only IAM access control is enabled.
 
+## Bonus: DataZone
+* [ ] DataZone Domain, Project, Environment, Data Source, Asset
+* [ ] Data Source import, Asset publish, list
+
+### Bonus by CLI
+
+A helper script `bonus.sh` is included to automate the DataZone bonus steps.
+
+1. Make the script executable:
+   ```bash
+   chmod +x bonus.sh
+   ```
+2. Run the script with your environment variables (adjust as needed):
+   ```bash
+   PROFILE=test REGION=us-east-1 ./bonus.sh
+   ```
+
+The script will:
+- Create or reuse the Domain, Project, Environment, and Data Source
+- Run the Data Source import
+- List the published Assets automatically
+
 ## Notes (FP style)
  * CDK designed with function constructors and immutable data (no subclassing).
  * Lambda is pure fetch → normalize → write with NDJSON for optimal Glue inference.
